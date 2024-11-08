@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./shared/header/header.component";
 
 @Component({
@@ -11,9 +11,16 @@ import { HeaderComponent } from "./shared/header/header.component";
 })
 export class AppComponent {
 
-
-
   title = 'Gloxi';
+
+  showHeader = true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      // Oculta el header si la ruta es '/login'
+      this.showHeader = this.router.url !== '/login';
+    });
+  }
 
 
 
