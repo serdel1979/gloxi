@@ -2,11 +2,12 @@ import { Component, HostListener } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./shared/header/header.component";
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FooterComponent } from "./shared/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   styleUrl: './app.component.css'
